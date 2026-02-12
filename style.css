@@ -1,0 +1,229 @@
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  /* 양측 여백 설정 (아까 정한 200px 기준) */
+  max-width: calc(100% - 400px);
+  margin: 0 auto;
+  padding: 20px 0;
+  gap: 20px;
+  /*border-bottom: 1px solid #eee; /* 구분선 (선택) */
+  position: sticky;
+  top: 0;
+  background-color: #ffffff; /* 배경색이 있어야 뒤의 글씨가 안 겹쳐 보여요 */
+  z-index: 1000; /* 다른 요소보다 위에 오도록 */
+}
+
+/* 모바일 대응 (화면이 작아질 때 여백이 너무 크면 안 되니까요!) */
+@media (max-width: 1024px) {
+  .header {
+    max-width: calc(100% - 40px); /* 화면이 작아지면 여백을 줄임 */
+  }
+}
+
+.header-category {
+display: flex;
+justify-content: flex-end; /* 자식 요소들을 오른쪽(끝)으로 정렬 */
+gap: 30px;
+}
+
+.header_title{
+color: #565656;
+font-family: "Orbit", sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
+text-decoration: none
+}
+
+.header_title_active,
+.header_title:hover {
+color: #000;
+font-family: "Orbit", sans-serif;font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-decoration: none
+}
+
+.cate-title {
+color: #565656;
+font-family: "Orbit", sans-serif;
+font-size: 18px;
+transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
+text-decoration: none;
+position: relative; /* 선의 기준점 */
+}
+.cate-title-active {
+color: #000;
+font-family: "Orbit", sans-serif;
+font-size: 18px;
+text-decoration: none;
+font-weight: bold;
+position: relative; /* 선의 기준점 */
+}
+
+
+.cate-title::after, .cate-title-active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* 텍스트와의 간격 */
+  left: 0;
+  width: 0;      /* 평소엔 보이지 않음 */
+  height: 1px;
+  background-color: #565656;
+  transition: width 0.3s ease; /* 선이 쓱 늘어나는 효과 */
+}
+
+.cate-title:hover::after, .cate-title-active:hover::after {
+  width: 100%;   /* 호버 시 선이 꽉 참 */
+}
+
+
+.content-container {
+  /* 1. 전체적인 너비 설정 (양옆 여백 200px 느낌 유지) */
+  max-width: calc(100% - 400px);
+  margin: 40px auto; /* 위아래 80px 여백을 주어 헤더와 띄움 */
+}
+
+.content-header {
+  margin-bottom: 46px; /* 타이틀과 본문 사이의 간격 */
+  padding-bottom: 20px;
+}
+
+.main-title {
+font-family: "Orbit", sans-serif;
+color: #000;
+text-align: center;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.content-body {
+font-family: "Asta Sans", sans-serif;
+line-height: 1.6; /* 본문은 행간이 넓어야 읽기 편해요 */
+color: #000;
+text-align: center;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+
+
+
+
+.writing-list {
+  max-width: 800px; /* 글 목록이 너무 넓으면 읽기 힘들어요 */
+  margin: 0 auto;
+}
+
+.post-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee; /* 아주 연한 구분선 */
+  transition: all 0.3s ease;
+}
+
+.post-item:hover {
+  background-color: #fafafa; /* 마우스 올렸을 때 살짝 배경색 변화 */
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between; /* 날짜와 제목을 양 끝으로 */
+  align-items: baseline;
+  margin-bottom: 1px;
+}
+
+.post-title {
+  font-family: "Orbit", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #222;
+  margin-left: 10px;
+
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: #999;
+  font-family: "Asta Sans", sans-serif;
+  margin-right: 10px;
+
+}
+
+.post-summary {
+  font-family: "Asta Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  /* 말줄임표 처리 (두 줄 이상일 때) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+
+.photo-grid {
+  display: grid;
+  /* 1. 피그마에서 설정한 열(Column) 개수 (예: 3열) */
+  grid-template-columns: repeat(4, 1fr); 
+  /* 2. 사진 사이의 간격 (Gutter) */
+  gap: 20px; 
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.photo-item {
+  position: relative;
+  width: 100%;
+  /* 3. 무조건 정방형 유지 */
+  aspect-ratio: 1 / 1; 
+  overflow: hidden;
+  background-color: #eee; /* 이미지 로딩 전 보일 색상 */
+  cursor: pointer;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  /* 4. 사진이 일그러지지 않게 꽉 채움 (피그마의 Fill 설정) */
+  object-fit: cover; 
+  transition: transform 0.5s ease;
+}
+
+/* 마우스를 올리면 사진이 살짝 커지는 효과 */
+.photo-item:hover img {
+  transform: scale(1.1);
+}
+
+/* 사진 위에 마우스를 올렸을 때 나타나는 검은 반투명 층 */
+.photo-overlay {
+  position: absolute;
+  font-family: "Asta Sans", sans-serif;
+
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+  opacity: 1;
+}
