@@ -9,8 +9,9 @@ fetch('data.json')
       const postHtml = `
         <a href="${post.link}" class="post-item">
           <div class="post-info">
-            <span class="post-date">${post.date}</span>
             <h2 class="post-title">${post.title}</h2>
+            <span class="post-date">${post.date}</span>
+
           </div>
           <p class="post-summary">${post.summary}</p>
         </a>
