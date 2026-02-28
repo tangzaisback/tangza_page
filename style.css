@@ -21,12 +21,6 @@
   gap: 20px;
 }
 
-/* 모바일 대응 (화면이 작아질 때 여백이 너무 크면 안 되니까요!) */
-@media (max-width: 1024px) {
-  .header {
-    max-width: calc(100% - 40px); /* 화면이 작아지면 여백을 줄임 */
-  }
-}
 
 .header-category {
 display: flex;
@@ -293,4 +287,79 @@ line-height: normal;
 
 .back-to-list:hover {
     border-bottom: 1px solid #666;
+}
+
+/* 화면 너비가 768px 이하(태블릿, 모바일)일 때 적용 */
+@media (max-width: 768px) {
+  .header-wrap, 
+  .post-container,
+  .writing-list-container {
+    max-width: 90%; /* 양옆에 5%씩만 여백을 줌 */
+    margin: 0 auto;
+  }
+
+  .header_title {
+    font-size: 1.5rem; /* 모바일에서는 제목을 조금 줄임 */
+  }
+
+  .header-category {
+    gap: 20px; /* 카테고리 간격도 좁힘 */
+  }
+
+  .content-container {
+    max-width: 90%;      /* 양옆에 약 5%씩 여백 확보 */
+    margin: 40px auto;   /* 위아래 여백을 데스크탑보다 줄임 */
+    padding: 0;          /* 추가 패딩 제거 */
+  }
+
+  .main-title {
+    font-size: 1.6rem;   /* 제목 크기를 모바일에 맞게 축소 */
+    line-height: 1.4;
+    word-break: keep-all; /* 단어가 어색하게 잘리지 않게 함 */
+  }
+
+  .content-body {
+    font-size: 1rem;     /* 본문 글씨를 조금 줄여 가독성 확보 */
+    line-height: 1.7;    /* 줄 간격은 여전히 넉넉하게 */
+  }
+
+  .post-body img {
+    margin: 20px 0;      /* 이미지 위아래 간격 축소 */
+    width: 100%;         /* 이미지가 화면 밖으로 나가지 않게 고정 */
+  }
+}
+
+/* =========================================
+   [모바일 반응형] 사진 그리드 (Photo Grid)
+   ========================================= */
+
+/* 1. 태블릿 화면 (너비 768px 이하) */
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr); /* 4열에서 3열로 변경 */
+    max-width: 90%; /* 화면 양옆에 5%씩 여백 확보 */
+    gap: 15px;      /* 사진 사이 간격을 살짝 줄임 */
+  }
+}
+
+/* 2. 모바일 화면 (너비 480px 이하) - 인스타그램 스타일 */
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 3열에서 2열로 변경 */
+    gap: 10px;         /* 폰에서는 간격이 좁은 게 예쁩니다 */
+    margin: 30px auto; /* 위아래 여백도 모바일에 맞게 축소 */
+  }
+}
+
+/* 모바일 화면 (480px 이하) 미디어 쿼리 안에 추가 */
+@media (max-width: 480px) {
+  /* ... 기존 그리드 설정 ... */
+
+  /* 모바일에서는 터치 시 사진이 커지거나 검은 막이 씌워지는 효과 비활성화 */
+  .photo-item:hover img {
+    transform: none; 
+  }
+  .photo-item:hover .photo-overlay {
+    display: none; 
+  }
 }
