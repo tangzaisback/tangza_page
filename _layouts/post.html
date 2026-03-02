@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<main class="post-container">
+    <article class="post-content">
+        <header class="post-header">
+            <h1 class="post-view-title">{{ page.title }}</h1>
+            <time class="post-view-date">{{ page.date | date: "%Y. %m. %d" }}</time>
+        </header>
+
+        <section class="post-body">
+            {{ content }}
+        </section>
+
+        <footer class="post-footer">
+            <a href='/writing.html' | relative_url class="back-to-list">← 목록으로 돌아가기</a>
+        </footer>
+    </article>
+</main>
