@@ -8,10 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href='/assets/css/style.css' | relative_url>    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
 </head>
 
 <body>
     {% include header.html %} <main>
         {{ content }} </main>
+
+    <script>
+        document.querySelectorAll('.zoom-link').forEach(link => {
+            link.onclick = (e) => {
+            e.preventDefault(); // 페이지 이동 방지
+            const imgUrl = link.getAttribute('href');
+            
+            // 클릭하면 큰 이미지를 띄우고, 그 이미지를 클릭하면 닫힘
+            const instance = basicLightbox.create(`
+                <img src="${imgUrl}" style="cursor: zoom-out;">
+            `);
+            
+            instance.show();
+            
+            // 띄워진 이미지를 클릭했을 때 닫기
+            instance.element().querySelector('img').onclick = () => instance.close();
+            };
+        });
+    </script>
  </body>
 </html>

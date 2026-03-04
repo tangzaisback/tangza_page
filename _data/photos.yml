@@ -1,0 +1,11 @@
+# _data/photos.yml
+- image: "photo1.jpg"
+  title: "2019 Finland"
+- image: "photo2.jpg"
+  title: "2019 Finland"
+- image: "photo3.jpg"
+  title: "2020 Rome"
+- image: "photo4.jpg"
+  title: "2020 Sevile"
+- image: "photo5.jpg"
+  title: "제주 차귀도"

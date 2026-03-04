@@ -4,20 +4,15 @@ title: "사진찍(히)기"
 ---
 
 <main class="content-container">
-  <section class="photo-grid">
+  <div class="photo-grid">
+    {% for item in site.data.photos reversed %}
     <div class="photo-item">
-      <img src="/images/photo1.jpg" alt="작품 설명 1">
-      <div class="photo-overlay">
-        <span>2019 Finland</span>
-      </div>
+      <a href="{{ '/images/' | append: item.image | relative_url }}" class="zoom-link">
+        <img src="{{ '/images/' | append: item.image | relative_url }}" alt="{{ item.title }}">
+      </a>
+      <p class="photo-overlay">
+        {{ item.title }}</p>
     </div>
-
-    <div class="photo-item">
-      <img src="/images/photo2.jpg" alt="작품 설명 2">
-      <div class="photo-overlay">
-        <span>2019 Finland</span>
-      </div>
-    </div>
-
-    </section>
+    {% endfor %}
+  </div>
 </main>
