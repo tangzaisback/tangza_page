@@ -76,7 +76,7 @@ if (likeBtn) {
     // Check if user already liked this post (locally)
     const hasLiked = localStorage.getItem('liked_' + dbKey);
     if (hasLiked) {
-        heartIconSpan.innerText = '❤️';
+        heartIconSpan.innerText = '🍅';
         likeBtn.classList.add('liked');
     }
 
@@ -97,7 +97,7 @@ if (likeBtn) {
         }).then(() => {
             // Success
             localStorage.setItem('liked_' + dbKey, 'true');
-            heartIconSpan.innerText = '❤️';
+            heartIconSpan.innerText = '🍅';
             likeBtn.classList.add('liked');
             
             // Add a little pop animation
