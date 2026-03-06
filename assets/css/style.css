@@ -692,3 +692,160 @@ body {
     transform: scale(1);
   }
 }
+
+/* =========================================
+   [홈] Hero 컴팩트 모드
+   ========================================= */
+.hero-section--compact {
+  min-height: unset;
+  padding: 40px 0 20px;
+  margin-bottom: 20px;
+  scroll-snap-align: none;
+}
+
+/* =========================================
+   [홈] 섹션 레이아웃
+   ========================================= */
+.home-section {
+  margin-bottom: 60px;
+}
+
+.home-section-title {
+  font-family: "Orbit", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.home-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.home-photo-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--photo-bg);
+  display: block;
+}
+
+.home-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.home-photo-item:hover img {
+  transform: scale(1.05);
+}
+
+.home-more-link {
+  display: inline-block;
+  font-family: "Orbit", sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: 4px;
+}
+
+.home-more-link:hover {
+  color: var(--text-main);
+}
+
+.home-about {
+  text-align: right;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* =========================================
+   [카드] post-card (홈 + writing.html 공통)
+   ========================================= */
+.post-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .post-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.post-card {
+  text-align: center;
+}
+
+.post-card .post-date {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+}
+
+.post-card .post-title {
+  font-size: 1rem;
+  margin-left: 0;
+  margin-bottom: 6px;
+}
+
+.post-card .post-summary {
+  font-size: 0.8rem;
+  margin-left: 0;
+}
+
+/* =========================================
+   [글 목록] writing.html 2열 그리드
+   ========================================= */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* =========================================
+   [반응형] 홈 그리드 + 글 그리드
+   ========================================= */
+@media (max-width: 768px) {
+  .home-grid,
+  .home-photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-grid,
+  .home-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
