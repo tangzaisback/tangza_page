@@ -3,10 +3,21 @@ layout: default
 title: "글(씨)쓰기"
 ---
 
+<div class="category-tabs">
+  <div class="category-tabs-main">
+    <button class="category-tab category-tab--all active" data-filter="all">전체</button>
+  </div>
+  <div class="category-tabs-sub">
+    <button class="category-tab category-tab--sub" data-filter="이것저것 설명하기">이것저것 설명하기</button>
+    <button class="category-tab category-tab--sub" data-filter="보고듣고 감상하기">보고듣고 감상하기</button>
+    <button class="category-tab category-tab--sub" data-filter="뚱땅뚱땅 개발하기">뚱땅뚱땅 개발하기</button>
+  </div>
+</div>
+
 <div class="post-container">
   <div class="post-grid">
     {% for post in site.posts %}
-      <a href="{{ post.url | relative_url }}" class="post-card reveal-on-scroll">
+      <a href="{{ post.url | relative_url }}" class="post-card reveal-on-scroll" data-category="{{ post.category }}">
         <span class="post-date">{{ post.date | date: "%Y. %m. %d" }}</span>
         <h2 class="post-title">{{ post.title }}</h2>
         <p class="post-summary">{{ post.excerpt | strip_html | truncate: 120 }}</p>
@@ -14,3 +25,23 @@ title: "글(씨)쓰기"
     {% endfor %}
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('.category-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.category-tab').forEach(function(t) {
+        t.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      var filter = this.getAttribute('data-filter');
+      document.querySelectorAll('.post-card').forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

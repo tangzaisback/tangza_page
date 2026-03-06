@@ -777,6 +777,66 @@ body {
 }
 
 /* =========================================
+   [탭] writing.html 카테고리 필터
+   ========================================= */
+.category-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.category-tabs-main {
+  display: flex;
+  justify-content: center;
+}
+
+.category-tabs-sub {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.category-tab {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  font-family: "Orbit", sans-serif;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.category-tab:hover {
+  color: var(--text-main);
+}
+
+.category-tab--all {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.category-tab--all.active {
+  color: var(--text-main);
+}
+
+.category-tab--sub {
+  font-size: 0.875rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.category-tab--sub.active {
+  color: var(--text-main);
+  border-bottom-color: var(--text-main);
+}
+
+/* =========================================
    [카드] post-card (홈 + writing.html 공통)
    ========================================= */
 .post-card {
