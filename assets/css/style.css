@@ -13,14 +13,20 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #272727;
   --text-main: #f0f0f0;
   --text-muted: #aaaaaa;
   --text-date: #777777;
-  --header-bg: rgba(18, 18, 18, 0.85);
+  --header-bg: #272727;
   --border-color: #333333;
   --hover-bg: #1e1e1e;
   --photo-bg: #2a2a2a;
+}
+
+html {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 120px;
+  /* 고정 헤더 영역을 고려 */
 }
 
 body {
@@ -31,7 +37,8 @@ body {
 }
 
 .header {
-  width: 100%;             /* 화면 끝에서 끝까지 꽉 채움 */
+  width: 100%;
+  /* 화면 끝에서 끝까지 꽉 채움 */
   position: sticky;
   top: 0;
   background-color: var(--header-bg);
@@ -44,37 +51,44 @@ body {
 
 /* 실제 제목과 메뉴가 들어가는 안쪽 박스 */
 .header-wrap {
-  max-width: calc(100% - 400px); /* 아까 설정한 너비 유지 */
-  margin: 0 auto;                /* 가운데 정렬 */
-  padding: 20px 0;               /* 위아래 여백 */
+  max-width: calc(100% - 400px);
+  /* 아까 설정한 너비 유지 */
+  margin: 0 auto;
+  /* 가운데 정렬 */
+  padding: 20px 0;
+  /* 위아래 여백 */
   display: flex;
   flex-direction: column;
-  align-items: stretch;           /* 제목, 카테고리 중앙 정렬 */
+  align-items: stretch;
+  /* 제목, 카테고리 중앙 정렬 */
   gap: 20px;
 }
 
 
 .header-category {
   display: flex;
-  justify-content: flex-end; /* 자식 요소들을 오른쪽(끝)으로 정렬 */
+  justify-content: flex-end;
+  /* 자식 요소들을 오른쪽(끝)으로 정렬 */
   gap: 30px;
   align-items: center;
 }
 
-.header_title{
+.header_title {
   color: var(--text-muted);
   font-family: "Orbit", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
+  transition: color 0.3s ease;
+  /* 색상 변경 시 부드럽게 */
   text-decoration: none
 }
 
 .header_title_active,
 .header_title:hover {
   color: var(--text-main);
-  font-family: "Orbit", sans-serif;font-size: 24px;
+  font-family: "Orbit", sans-serif;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -85,9 +99,11 @@ body {
   color: var(--text-muted);
   font-family: "Orbit", sans-serif;
   font-size: 18px;
-  transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
+  transition: color 0.3s ease;
+  /* 색상 변경 시 부드럽게 */
   text-decoration: none;
-  position: relative; /* 선의 기준점 */
+  position: relative;
+  /* 선의 기준점 */
 }
 
 .cate-title-active {
@@ -96,33 +112,42 @@ body {
   font-size: 18px;
   text-decoration: none;
   font-weight: bold;
-  position: relative; /* 선의 기준점 */
+  position: relative;
+  /* 선의 기준점 */
 }
 
-.cate-title::after, .cate-title-active::after {
+.cate-title::after,
+.cate-title-active::after {
   content: "";
   position: absolute;
-  bottom: -2px; /* 텍스트와의 간격 */
+  bottom: -2px;
+  /* 텍스트와의 간격 */
   left: 0;
-  width: 0;      /* 평소엔 보이지 않음 */
+  width: 0;
+  /* 평소엔 보이지 않음 */
   height: 1px;
   background-color: var(--text-muted);
-  transition: width 0.3s ease; /* 선이 쓱 늘어나는 효과 */
+  transition: width 0.3s ease;
+  /* 선이 쓱 늘어나는 효과 */
 }
 
-.cate-title:hover::after, .cate-title-active:hover::after {
-  width: 100%;   /* 호버 시 선이 꽉 참 */
+.cate-title:hover::after,
+.cate-title-active:hover::after {
+  width: 100%;
+  /* 호버 시 선이 꽉 참 */
 }
 
 
 .content-container {
   /* 1. 전체적인 너비 설정 (양옆 여백 200px 느낌 유지) */
   max-width: calc(100% - 400px);
-  margin: 40px auto; /* 위아래 80px 여백을 주어 헤더와 띄움 */
+  margin: 40px auto;
+  /* 위아래 80px 여백을 주어 헤더와 띄움 */
 }
 
 .content-header {
-  margin-bottom: 46px; /* 타이틀과 본문 사이의 간격 */
+  margin-bottom: 46px;
+  /* 타이틀과 본문 사이의 간격 */
   padding-bottom: 20px;
 }
 
@@ -136,9 +161,67 @@ body {
   line-height: normal;
 }
 
+.hero-section {
+  min-height: 70vh;
+  /* 화면의 70% 정도를 채움 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  scroll-snap-align: start;
+  /* 위쪽 영역 기준 스냅 */
+}
+
 .hero-title {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 42px;
+  /* 제목 크기를 더 키워줍니다 */
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  /* 글자 간격 살짝 좁힘 */
+}
+
+.scroll-indicator {
+  margin-top: 50px;
+  text-align: center;
+  color: var(--text-muted);
+  font-family: "Asta Sans", sans-serif;
+  animation: bounce 2s infinite;
+  transition: color 0.3s;
+}
+
+.scroll-indicator:hover {
+  color: var(--text-main);
+}
+
+.scroll-indicator p {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.scroll-indicator .arrow-down {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 .hero-subtitle {
@@ -151,7 +234,8 @@ body {
 
 .content-body {
   font-family: "Asta Sans", sans-serif;
-  line-height: 1.6; /* 본문은 행간이 넓어야 읽기 편해요 */
+  line-height: 1.6;
+  /* 본문은 행간이 넓어야 읽기 편해요 */
   color: var(--text-main);
   text-align: center;
   font-size: 16px;
@@ -160,9 +244,17 @@ body {
   line-height: normal;
 }
 
+.post-body {
+  scroll-margin-top: 120px;
+  /* 헤더 높이만큼 뺌 */
+  scroll-snap-align: start;
+  /* 글의 시작 부분에 자석처럼 붙게 함 */
+}
+
 
 .writing-list {
-  max-width: 800px; /* 글 목록이 너무 넓으면 읽기 힘들어요 */
+  max-width: 800px;
+  /* 글 목록이 너무 넓으면 읽기 힘들어요 */
   margin: 0 auto;
 }
 
@@ -171,23 +263,28 @@ body {
   text-decoration: none;
   color: inherit;
   padding: 20px 20px;
-  border-bottom: 1px solid var(--border-color); /* 아주 연한 구분선 */
+  border-bottom: 1px solid var(--border-color);
+  /* 아주 연한 구분선 */
   transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px; /* Hover 때 부드러운 느낌을 줌 */
+  border-radius: 8px;
+  /* Hover 때 부드러운 느낌을 줌 */
 }
 
 .post-item:hover {
-  background-color: var(--hover-bg); /* 마우스 올렸을 때 살짝 배경색 변화 */
+  background-color: var(--hover-bg);
+  /* 마우스 올렸을 때 살짝 배경색 변화 */
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 [data-theme="dark"] .post-item:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .post-info {
   display: flex;
-  justify-content: space-between; /* 날짜와 제목을 양 끝으로 */
+  justify-content: space-between;
+  /* 날짜와 제목을 양 끝으로 */
   align-items: baseline;
   margin-bottom: 1px;
 }
@@ -225,7 +322,7 @@ body {
   /* 1. 피그마에서 설정한 열(Column) 개수 (예: 3열) */
   grid-template-columns: repeat(3, 1fr);
   /* 2. 사진 사이의 간격 (Gutter) */
-  gap: 20px; 
+  gap: 20px;
   max-width: 1000px;
   margin: 50px auto;
 }
@@ -234,12 +331,15 @@ body {
   position: relative;
   width: 100%;
   display: block;
-  align-self: start; /* Grid 안에서 부모 박스가 세로로 늘어나는 것을 방지 */
+  align-self: start;
+  /* Grid 안에서 부모 박스가 세로로 늘어나는 것을 방지 */
   /* 3. 무조건 정방형 유지 */
-  aspect-ratio: 1 / 1; 
-  line-height: 0;    /* 하단에 미세하게 생기는 빈 공간 제거 (중요!) */
+  aspect-ratio: 1 / 1;
+  line-height: 0;
+  /* 하단에 미세하게 생기는 빈 공간 제거 (중요!) */
   overflow: hidden;
-  background-color: var(--photo-bg); /* 이미지 로딩 전 보일 색상 */
+  background-color: var(--photo-bg);
+  /* 이미지 로딩 전 보일 색상 */
   cursor: pointer;
   border-radius: 4px;
 }
@@ -247,12 +347,14 @@ body {
 .photo-item img {
   width: 100%;
   height: 100%;
-  display: block; /* 이미지 하단 고스트 마진 제거 */
+  display: block;
+  /* 이미지 하단 고스트 마진 제거 */
   /* 4. 사진이 일그러지지 않게 꽉 채움 (피그마의 Fill 설정) */
-  object-fit: cover; 
+  object-fit: cover;
   cursor: zoom-in;
   transition: transform 0.5s ease;
-  display: block;    /* 이미지를 블록으로 만들어 주변 공백 제거 */
+  display: block;
+  /* 이미지를 블록으로 만들어 주변 공백 제거 */
 }
 
 /* 마우스를 올리면 사진이 살짝 커지는 효과 */
@@ -264,9 +366,14 @@ body {
 .photo-overlay {
   position: absolute;
   font-family: "Asta Sans", sans-serif;
-  top: 0; left: 0; right: 0; bottom: 0;
-  margin: 0 !important; /* 혹시 모를 브라우저 기본 마진 제거 */
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 !important;
+  /* 혹시 모를 브라우저 기본 마진 제거 */
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
   display: flex;
@@ -274,7 +381,7 @@ body {
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .photo-item:hover .photo-overlay {
@@ -282,93 +389,106 @@ body {
 }
 
 .post-container {
-    max-width: 700px; /* 본문은 리스트보다 조금 더 좁게 잡는 게 읽기 편해요 */
-    margin: 80px auto;
-    padding: 0 20px;
-    line-height: 1.8; /* 행간을 넉넉하게 (피그마의 Line Height) */
-    margin-top: 50px;
+  max-width: 700px;
+  /* 본문은 리스트보다 조금 더 좁게 잡는 게 읽기 편해요 */
+  margin: 80px auto;
+  padding: 0 20px;
+  line-height: 1.8;
+  /* 행간을 넉넉하게 (피그마의 Line Height) */
+  margin-top: 50px;
 }
 
 .post-header {
-    text-align: center;
-    margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .post-view-title {
-    font-family: "Orbit", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--text-main);
-    word-break: keep-all; /* 한글 단어가 중간에 잘리지 않게 */
-    margin-bottom: 10px;
+  font-family: "Orbit", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-main);
+  word-break: keep-all;
+  /* 한글 단어가 중간에 잘리지 않게 */
+  margin-bottom: 10px;
 }
 
 .post-view-date {
-    color: var(--text-date);
-    font-size: 0.9rem;
+  color: var(--text-date);
+  font-size: 0.9rem;
 }
 
 .post-body {
-    font-size: 1.1rem;
-    color: var(--text-main);
+  font-size: 1.1rem;
+  color: var(--text-main);
 }
 
 .post-body p {
-    margin-bottom: 24px; /* 문단 사이 간격 */
-    font-family: "Asta Sans", sans-serif;
-    color: var(--text-main);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
+  margin-bottom: 24px;
+  /* 문단 사이 간격 */
+  font-family: "Asta Sans", sans-serif;
+  color: var(--text-main);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .post-body img {
-    width: 100%;
-    height: auto;
-    margin: 40px 0;
-    border-radius: 8px;
+  width: 100%;
+  height: auto;
+  margin: 40px 0;
+  border-radius: 8px;
 }
 
 .back-to-list {
-    display: inline-block;
-    margin-top: 60px;
-    text-decoration: none;
-    color: var(--text-muted);
-    border-bottom: 1px solid transparent;
-    transition: 0.3s;
+  display: inline-block;
+  margin-top: 60px;
+  text-decoration: none;
+  color: var(--text-muted);
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
 }
 
 .back-to-list:hover {
-    border-bottom: 1px solid var(--text-muted);
+  border-bottom: 1px solid var(--text-muted);
 }
 
 /* 화면 너비가 768px 이하(태블릿, 모바일)일 때 적용 */
 @media (max-width: 768px) {
-  .header-wrap, 
+
+  .header-wrap,
   .post-container,
   .writing-list-container {
-    max-width: 90%; /* 양옆에 5%씩만 여백을 줌 */
+    max-width: 90%;
+    /* 양옆에 5%씩만 여백을 줌 */
     margin: 0 auto;
   }
 
   .header_title {
-    font-size: 1.5rem; /* 모바일에서는 제목을 조금 줄임 */
+    font-size: 1.5rem;
+    /* 모바일에서는 제목을 조금 줄임 */
   }
 
   .header-category {
-    gap: 20px; /* 카테고리 간격도 좁힘 */
+    gap: 20px;
+    /* 카테고리 간격도 좁힘 */
   }
 
   .content-container {
-    max-width: 90%;      /* 양옆에 약 5%씩 여백 확보 */
-    margin: 40px auto;   /* 위아래 여백을 데스크탑보다 줄임 */
-    padding: 0;          /* 추가 패딩 제거 */
+    max-width: 90%;
+    /* 양옆에 약 5%씩 여백 확보 */
+    margin: 40px auto;
+    /* 위아래 여백을 데스크탑보다 줄임 */
+    padding: 0;
+    /* 추가 패딩 제거 */
   }
 
   .main-title {
-    font-size: 1.6rem;   /* 제목 크기를 모바일에 맞게 축소 */
+    font-size: 1.6rem;
+    /* 제목 크기를 모바일에 맞게 축소 */
     line-height: 1.4;
-    word-break: keep-all; /* 단어가 어색하게 잘리지 않게 함 */
+    word-break: keep-all;
+    /* 단어가 어색하게 잘리지 않게 함 */
   }
 
   .hero-title {
@@ -380,13 +500,17 @@ body {
   }
 
   .content-body {
-    font-size: 1rem;     /* 본문 글씨를 조금 줄여 가독성 확보 */
-    line-height: 1.7;    /* 줄 간격은 여전히 넉넉하게 */
+    font-size: 1rem;
+    /* 본문 글씨를 조금 줄여 가독성 확보 */
+    line-height: 1.7;
+    /* 줄 간격은 여전히 넉넉하게 */
   }
 
   .post-body img {
-    margin: 20px 0;      /* 이미지 위아래 간격 축소 */
-    width: 100%;         /* 이미지가 화면 밖으로 나가지 않게 고정 */
+    margin: 20px 0;
+    /* 이미지 위아래 간격 축소 */
+    width: 100%;
+    /* 이미지가 화면 밖으로 나가지 않게 고정 */
   }
 }
 
@@ -397,29 +521,37 @@ body {
 /* 1. 태블릿 화면 (너비 768px 이하) */
 @media (max-width: 768px) {
   .photo-grid {
-    grid-template-columns: repeat(3, 1fr); /* 4열에서 3열로 변경 */
-    max-width: 90%; /* 화면 양옆에 5%씩 여백 확보 */
-    gap: 15px;      /* 사진 사이 간격을 살짝 줄임 */
+    grid-template-columns: repeat(3, 1fr);
+    /* 4열에서 3열로 변경 */
+    max-width: 90%;
+    /* 화면 양옆에 5%씩 여백 확보 */
+    gap: 15px;
+    /* 사진 사이 간격을 살짝 줄임 */
   }
 }
 
 /* 2. 모바일 화면 (너비 480px 이하) - 인스타그램 스타일 */
 @media (max-width: 480px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr); /* 3열에서 2열로 변경 */
-    gap: 10px;         /* 폰에서는 간격이 좁은 게 예쁩니다 */
-    margin: 30px auto; /* 위아래 여백도 모바일에 맞게 축소 */
+    grid-template-columns: repeat(2, 1fr);
+    /* 3열에서 2열로 변경 */
+    gap: 10px;
+    /* 폰에서는 간격이 좁은 게 예쁩니다 */
+    margin: 30px auto;
+    /* 위아래 여백도 모바일에 맞게 축소 */
   }
 }
 
 /* 모바일 화면 (480px 이하) 미디어 쿼리 안에 추가 */
 @media (max-width: 480px) {
+
   /* 모바일에서는 터치 시 사진이 커지거나 검은 막이 씌워지는 효과 비활성화 */
   .photo-item:hover img {
-    transform: none; 
+    transform: none;
   }
+
   .photo-item:hover .photo-overlay {
-    display: none; 
+    display: none;
   }
 }
 
@@ -438,33 +570,50 @@ body {
 }
 
 /* =========================================
-   [다크모드 토글] Theme Toggle Button
+   [다크모드 토글] Theme Toggle Switch
    ========================================= */
 .theme-toggle-btn {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
+  background-color: var(--photo-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  width: 64px;
+  height: 32px;
   cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 동그란 슬라이드 버튼 (Thumb) */
+.theme-toggle-btn .toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* 다크모드일 때 슬라이드 위치 이동 */
+[data-theme="dark"] .theme-toggle-btn .toggle-slider {
+  transform: translateX(32px);
+  background-color: #333;
+}
+
+/* 버튼 내 아이콘 설정 */
+.theme-toggle-btn .icon {
+  font-size: 14px;
+  width: 32px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
-  color: var(--text-main);
-}
-
-.theme-toggle-btn:hover {
-  transform: scale(1.1);
-}
-
-.theme-toggle-btn .dark-icon {
-  display: none;
-}
-
-[data-theme="dark"] .theme-toggle-btn .light-icon {
-  display: none;
-}
-
-[data-theme="dark"] .theme-toggle-btn .dark-icon {
-  display: inline;
+  z-index: 1;
+  /* 글자가 슬라이더 버튼 뒤로 가도록 설정 */
 }

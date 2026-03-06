@@ -6,3 +6,4 @@ gem "jekyll", "~> 4.3"
 # 루비 4.0을 위한 필수 도구
 gem "webrick"
 gem "csv"
+gem "jekyll-feed"

@@ -13,6 +13,13 @@ layout: default
             {{ content }}
         </section>
 
+        <div class="like-section">
+            <button id="like-btn" class="like-btn" data-url="{{ page.url }}">
+                <span class="heart-icon">🤍</span>
+                <span id="like-count">0</span>
+            </button>
+        </div>
+
         <footer class="post-footer">
             <a href='/writing.html' | relative_url class="back-to-list">← 목록으로 돌아가기</a>
         </footer>
