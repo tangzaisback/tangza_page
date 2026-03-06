@@ -36,6 +36,12 @@ body {
   margin: 0;
 }
 
+:focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .header {
   width: 100%;
   /* 화면 끝에서 끝까지 꽉 채움 */

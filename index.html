@@ -27,7 +27,7 @@ title: "대문"
     <div class="home-photo-grid">
       {% for photo in site.data.photos limit:3 %}
         <a href="{{ '/photo.html' | relative_url }}" class="home-photo-item">
-          <img src="{{ '/images/' | append: photo.image | relative_url }}" alt="{{ photo.title }}">
+          <img src="{{ '/images/' | append: photo.image | relative_url }}" alt="{{ photo.title }}" loading="lazy">
         </a>
       {% endfor %}
     </div>
