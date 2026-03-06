@@ -47,7 +47,7 @@ const firebaseConfig = {
   messagingSenderId: "590553225335",
   appId: "1:590553225335:web:497aff87927e4f512c8e72",
   measurementId: "G-MPFM7ZLEJ5",
-  databaseURL: "https://tangzaisback-563c7-default-rtdb.asia-southeast1.firebasedatabase.app" // Add a fallback if it exists, otherwise relying on standard routing
+  databaseURL: "https://tangzaisback-563c7-default-rtdb.firebaseio.com"
 };
 
 // Initialize Firebase
