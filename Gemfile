@@ -1,9 +1,8 @@
 source "https://rubygems.org"
 
-# GitHub Pages의 표준 엔진을 사용합니다.
-gem "github-pages", group: :jekyll_plugins
+# github-pages 대신 최신 지킬을 직접 씁니다.
+gem "jekyll", "~> 4.3"
 
-# 로컬(Ruby 3.4/4.0)에서 발생하는 에러를 막기 위한 필수 도구들
+# 루비 4.0을 위한 필수 도구
 gem "webrick"
 gem "csv"
-gem "bigdecimal"
