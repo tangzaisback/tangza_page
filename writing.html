@@ -5,7 +5,7 @@ title: "글(씨)쓰기"
 
 <div class="post-container">
   {% for post in site.posts %}
-    <a href="{{ post.url | relative_url }}" class="post-item">
+    <a href="{{ post.url | relative_url }}" class="post-item reveal-on-scroll">
       <div class="post-info">
         <h2 class="post-title">{{ post.title }}</h2>
         <span class="post-date">{{ post.date | date: "%Y. %m. %d" }}</span>

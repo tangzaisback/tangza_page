@@ -1,13 +1,45 @@
 /* style.css 맨 상단 */
 @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
 
+:root {
+  --bg-color: #ffffff;
+  --text-main: #000000;
+  --text-muted: #565656;
+  --text-date: #999999;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --border-color: #eeeeee;
+  --hover-bg: #fafafa;
+  --photo-bg: #eeeeee;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-main: #f0f0f0;
+  --text-muted: #aaaaaa;
+  --text-date: #777777;
+  --header-bg: rgba(18, 18, 18, 0.85);
+  --border-color: #333333;
+  --hover-bg: #1e1e1e;
+  --photo-bg: #2a2a2a;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+}
 
 .header {
   width: 100%;             /* 화면 끝에서 끝까지 꽉 채움 */
   position: sticky;
   top: 0;
-  background-color: #ffffff;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
   z-index: 1000;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* 실제 제목과 메뉴가 들어가는 안쪽 박스 */
@@ -23,48 +55,49 @@
 
 
 .header-category {
-display: flex;
-justify-content: flex-end; /* 자식 요소들을 오른쪽(끝)으로 정렬 */
-gap: 30px;
+  display: flex;
+  justify-content: flex-end; /* 자식 요소들을 오른쪽(끝)으로 정렬 */
+  gap: 30px;
+  align-items: center;
 }
 
 .header_title{
-color: #565656;
-font-family: "Orbit", sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
-text-decoration: none
+  color: var(--text-muted);
+  font-family: "Orbit", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
+  text-decoration: none
 }
 
 .header_title_active,
 .header_title:hover {
-color: #000;
-font-family: "Orbit", sans-serif;font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-decoration: none
+  color: var(--text-main);
+  font-family: "Orbit", sans-serif;font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none
 }
 
 .cate-title {
-color: #565656;
-font-family: "Orbit", sans-serif;
-font-size: 18px;
-transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
-text-decoration: none;
-position: relative; /* 선의 기준점 */
-}
-.cate-title-active {
-color: #000;
-font-family: "Orbit", sans-serif;
-font-size: 18px;
-text-decoration: none;
-font-weight: bold;
-position: relative; /* 선의 기준점 */
+  color: var(--text-muted);
+  font-family: "Orbit", sans-serif;
+  font-size: 18px;
+  transition: color 0.3s ease; /* 색상 변경 시 부드럽게 */
+  text-decoration: none;
+  position: relative; /* 선의 기준점 */
 }
 
+.cate-title-active {
+  color: var(--text-main);
+  font-family: "Orbit", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative; /* 선의 기준점 */
+}
 
 .cate-title::after, .cate-title-active::after {
   content: "";
@@ -73,7 +106,7 @@ position: relative; /* 선의 기준점 */
   left: 0;
   width: 0;      /* 평소엔 보이지 않음 */
   height: 1px;
-  background-color: #565656;
+  background-color: var(--text-muted);
   transition: width 0.3s ease; /* 선이 쓱 늘어나는 효과 */
 }
 
@@ -94,28 +127,38 @@ position: relative; /* 선의 기준점 */
 }
 
 .main-title {
-font-family: "Orbit", sans-serif;
-color: #000;
-text-align: center;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  font-family: "Orbit", sans-serif;
+  color: var(--text-main);
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.hero-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-family: "Asta Sans", sans-serif;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 18px;
+  margin-top: 0;
 }
 
 .content-body {
-font-family: "Asta Sans", sans-serif;
-line-height: 1.6; /* 본문은 행간이 넓어야 읽기 편해요 */
-color: #000;
-text-align: center;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  font-family: "Asta Sans", sans-serif;
+  line-height: 1.6; /* 본문은 행간이 넓어야 읽기 편해요 */
+  color: var(--text-main);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-
-
-
 
 
 .writing-list {
@@ -127,13 +170,19 @@ line-height: normal;
   display: block;
   text-decoration: none;
   color: inherit;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee; /* 아주 연한 구분선 */
-  transition: all 0.3s ease;
+  padding: 20px 20px;
+  border-bottom: 1px solid var(--border-color); /* 아주 연한 구분선 */
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px; /* Hover 때 부드러운 느낌을 줌 */
 }
 
 .post-item:hover {
-  background-color: #fafafa; /* 마우스 올렸을 때 살짝 배경색 변화 */
+  background-color: var(--hover-bg); /* 마우스 올렸을 때 살짝 배경색 변화 */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+[data-theme="dark"] .post-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .post-info {
@@ -147,24 +196,22 @@ line-height: normal;
   font-family: "Orbit", sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
-  color: #222;
+  color: var(--text-main);
   margin-left: 10px;
-
 }
 
 .post-date {
   font-size: 0.9rem;
-  color: #999;
+  color: var(--text-date);
   font-family: "Asta Sans", sans-serif;
   margin-right: 10px;
-
 }
 
 .post-summary {
   font-family: "Asta Sans", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: #666;
+  color: var(--text-muted);
   /* 말줄임표 처리 (두 줄 이상일 때) */
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -172,7 +219,6 @@ line-height: normal;
   overflow: hidden;
   margin-left: 10px;
 }
-
 
 .photo-grid {
   display: grid;
@@ -193,8 +239,9 @@ line-height: normal;
   aspect-ratio: 1 / 1; 
   line-height: 0;    /* 하단에 미세하게 생기는 빈 공간 제거 (중요!) */
   overflow: hidden;
-  background-color: #eee; /* 이미지 로딩 전 보일 색상 */
+  background-color: var(--photo-bg); /* 이미지 로딩 전 보일 색상 */
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .photo-item img {
@@ -217,7 +264,6 @@ line-height: normal;
 .photo-overlay {
   position: absolute;
   font-family: "Asta Sans", sans-serif;
-
   top: 0; left: 0; right: 0; bottom: 0;
   margin: 0 !important; /* 혹시 모를 브라우저 기본 마진 제거 */
   width: 100%; height: 100%;
@@ -234,8 +280,6 @@ line-height: normal;
 .photo-item:hover .photo-overlay {
   opacity: 1;
 }
-
-
 
 .post-container {
     max-width: 700px; /* 본문은 리스트보다 조금 더 좁게 잡는 게 읽기 편해요 */
@@ -254,25 +298,25 @@ line-height: normal;
     font-family: "Orbit", sans-serif;
     font-size: 1.4rem;
     font-weight: 500;
-    color: #222;
+    color: var(--text-main);
     word-break: keep-all; /* 한글 단어가 중간에 잘리지 않게 */
     margin-bottom: 10px;
 }
 
 .post-view-date {
-    color: #999;
+    color: var(--text-date);
     font-size: 0.9rem;
 }
 
 .post-body {
     font-size: 1.1rem;
-    color: #333;
+    color: var(--text-main);
 }
 
 .post-body p {
     margin-bottom: 24px; /* 문단 사이 간격 */
     font-family: "Asta Sans", sans-serif;
-    color: #000;
+    color: var(--text-main);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -282,19 +326,20 @@ line-height: normal;
     width: 100%;
     height: auto;
     margin: 40px 0;
+    border-radius: 8px;
 }
 
 .back-to-list {
     display: inline-block;
     margin-top: 60px;
     text-decoration: none;
-    color: #666;
+    color: var(--text-muted);
     border-bottom: 1px solid transparent;
     transition: 0.3s;
 }
 
 .back-to-list:hover {
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid var(--text-muted);
 }
 
 /* 화면 너비가 768px 이하(태블릿, 모바일)일 때 적용 */
@@ -324,6 +369,14 @@ line-height: normal;
     font-size: 1.6rem;   /* 제목 크기를 모바일에 맞게 축소 */
     line-height: 1.4;
     word-break: keep-all; /* 단어가 어색하게 잘리지 않게 함 */
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
   }
 
   .content-body {
@@ -361,8 +414,6 @@ line-height: normal;
 
 /* 모바일 화면 (480px 이하) 미디어 쿼리 안에 추가 */
 @media (max-width: 480px) {
-  /* ... 기존 그리드 설정 ... */
-
   /* 모바일에서는 터치 시 사진이 커지거나 검은 막이 씌워지는 효과 비활성화 */
   .photo-item:hover img {
     transform: none; 
@@ -370,4 +421,50 @@ line-height: normal;
   .photo-item:hover .photo-overlay {
     display: none; 
   }
+}
+
+/* =========================================
+   [애니메이션] Scroll Reveal
+   ========================================= */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   [다크모드 토글] Theme Toggle Button
+   ========================================= */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  color: var(--text-main);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn .dark-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle-btn .light-icon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle-btn .dark-icon {
+  display: inline;
 }

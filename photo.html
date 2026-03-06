@@ -6,7 +6,7 @@ title: "사진찍(히)기"
 <main class="content-container">
   <div class="photo-grid">
     {% for item in site.data.photos reversed %}
-    <div class="photo-item">
+    <div class="photo-item reveal-on-scroll">
       <a href="{{ '/images/' | append: item.image | relative_url }}" class="zoom-link">
         <img src="{{ '/images/' | append: item.image | relative_url }}" alt="{{ item.title }}">
       </a>
