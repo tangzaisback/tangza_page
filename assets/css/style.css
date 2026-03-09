@@ -2,25 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
 
 :root {
-  --bg-color: #ffffff;
-  --text-main: #000000;
-  --text-muted: #565656;
-  --text-date: #999999;
-  --header-bg: rgba(255, 255, 255, 0.85);
-  --border-color: #eeeeee;
-  --hover-bg: #fafafa;
-  --photo-bg: #eeeeee;
+  --bg-color: #faf9f6;
+  --text-main: #1c1b19;
+  --text-muted: #6e6c66;
+  --text-date: #a09d97;
+  --header-bg: rgba(250, 249, 246, 0.88);
+  --border-color: #e5e2db;
+  --hover-bg: #f3f1ec;
+  --photo-bg: #e5e2db;
+  --accent: #c17a5a;
 }
 
 [data-theme="dark"] {
-  --bg-color: #272727;
-  --text-main: #f0f0f0;
-  --text-muted: #aaaaaa;
-  --text-date: #777777;
-  --header-bg: #272727;
-  --border-color: #333333;
-  --hover-bg: #1e1e1e;
-  --photo-bg: #2a2a2a;
+  --bg-color: #1a1917;
+  --text-main: #e8e4dc;
+  --text-muted: #9b978f;
+  --text-date: #6e6b65;
+  --header-bg: rgba(26, 25, 23, 0.92);
+  --border-color: #2e2c29;
+  --hover-bg: #222120;
+  --photo-bg: #252320;
+  --accent: #c17a5a;
 }
 
 html {
@@ -57,25 +59,21 @@ body {
 
 /* 실제 제목과 메뉴가 들어가는 안쪽 박스 */
 .header-wrap {
-  max-width: calc(100% - 400px);
-  /* 아까 설정한 너비 유지 */
+  max-width: 860px;
   margin: 0 auto;
-  /* 가운데 정렬 */
-  padding: 20px 0;
-  /* 위아래 여백 */
+  padding: 0 20px;
+  height: 64px;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* 제목, 카테고리 중앙 정렬 */
-  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
 .header-category {
   display: flex;
   justify-content: flex-end;
-  /* 자식 요소들을 오른쪽(끝)으로 정렬 */
-  gap: 30px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -127,14 +125,11 @@ body {
   content: "";
   position: absolute;
   bottom: -2px;
-  /* 텍스트와의 간격 */
   left: 0;
   width: 0;
-  /* 평소엔 보이지 않음 */
   height: 1px;
-  background-color: var(--text-muted);
+  background-color: var(--accent);
   transition: width 0.3s ease;
-  /* 선이 쓱 늘어나는 효과 */
 }
 
 .cate-title:hover::after,
@@ -145,10 +140,8 @@ body {
 
 
 .content-container {
-  /* 1. 전체적인 너비 설정 (양옆 여백 200px 느낌 유지) */
-  max-width: calc(100% - 400px);
+  max-width: 700px;
   margin: 40px auto;
-  /* 위아래 80px 여백을 주어 헤더와 띄움 */
 }
 
 .content-header {
@@ -168,23 +161,21 @@ body {
 }
 
 .hero-section {
-  min-height: 70vh;
-  /* 화면의 70% 정도를 채움 */
+  min-height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   scroll-snap-align: start;
-  /* 위쪽 영역 기준 스냅 */
 }
 
 .hero-title {
-  font-size: 42px;
-  /* 제목 크기를 더 키워줍니다 */
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-  /* 글자 간격 살짝 좁힘 */
+  font-family: "Noto Serif KR", serif;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .scroll-indicator {
@@ -231,23 +222,21 @@ body {
 }
 
 .hero-subtitle {
-  font-family: "Asta Sans", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   color: var(--text-muted);
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 0;
 }
 
 .content-body {
-  font-family: "Asta Sans", sans-serif;
-  line-height: 1.6;
-  /* 본문은 행간이 넓어야 읽기 편해요 */
+  font-family: "Noto Sans KR", sans-serif;
   color: var(--text-main);
   text-align: center;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.8;
 }
 
 .post-body {
@@ -259,9 +248,9 @@ body {
 
 
 .writing-list {
-  max-width: 800px;
-  /* 글 목록이 너무 넓으면 읽기 힘들어요 */
-  margin: 0 auto;
+  max-width: 700px;
+  margin: 24px auto 60px;
+  padding: 0 20px;
 }
 
 .post-item {
@@ -296,31 +285,37 @@ body {
 }
 
 .post-title {
-  font-family: "Orbit", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--text-main);
-  margin-left: 10px;
+  margin-left: 0;
+  flex: 1;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .post-date {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-date);
-  font-family: "Asta Sans", sans-serif;
-  margin-right: 10px;
+  font-family: "Orbit", sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .post-summary {
-  font-family: "Asta Sans", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--text-muted);
-  /* 말줄임표 처리 (두 줄 이상일 때) */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-left: 10px;
+  margin-left: 0;
+  margin-top: 4px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .photo-grid {
@@ -405,23 +400,27 @@ body {
 }
 
 .post-header {
-  text-align: center;
-  margin-bottom: 60px;
+  text-align: left;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .post-view-title {
-  font-family: "Orbit", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
   color: var(--text-main);
   word-break: keep-all;
-  /* 한글 단어가 중간에 잘리지 않게 */
-  margin-bottom: 10px;
+  line-height: 1.4;
+  margin-bottom: 12px;
 }
 
 .post-view-date {
+  display: block;
   color: var(--text-date);
-  font-size: 0.9rem;
+  font-family: "Orbit", sans-serif;
+  font-size: 0.82rem;
 }
 
 .post-body {
@@ -430,13 +429,15 @@ body {
 }
 
 .post-body p {
-  margin-bottom: 24px;
-  /* 문단 사이 간격 */
-  font-family: "Asta Sans", sans-serif;
+  margin-bottom: 28px;
+  font-family: "Noto Sans KR", sans-serif;
   color: var(--text-main);
-  font-size: 16px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
+  line-height: 1.85;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .post-body img {
@@ -456,18 +457,21 @@ body {
 }
 
 .back-to-list:hover {
-  border-bottom: 1px solid var(--text-muted);
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
 }
 
 /* 화면 너비가 768px 이하(태블릿, 모바일)일 때 적용 */
 @media (max-width: 768px) {
 
-  .header-wrap,
+  .header-wrap {
+    padding: 0 16px;
+  }
+
   .post-container,
-  .writing-list-container {
+  .writing-list {
     max-width: 90%;
-    /* 양옆에 5%씩만 여백을 줌 */
-    margin: 0 auto;
+    padding: 0 0;
   }
 
   .header_title {
@@ -476,8 +480,7 @@ body {
   }
 
   .header-category {
-    gap: 20px;
-    /* 카테고리 간격도 좁힘 */
+    gap: 14px;
   }
 
   .content-container {
@@ -527,12 +530,9 @@ body {
 /* 1. 태블릿 화면 (너비 768px 이하) */
 @media (max-width: 768px) {
   .photo-grid {
-    grid-template-columns: repeat(3, 1fr);
-    /* 4열에서 3열로 변경 */
+    grid-template-columns: repeat(2, 1fr);
     max-width: 90%;
-    /* 화면 양옆에 5%씩 여백 확보 */
     gap: 15px;
-    /* 사진 사이 간격을 살짝 줄임 */
   }
 }
 
@@ -688,9 +688,9 @@ body {
 
 /* 한번 '좋아요'를 누른 상태 (로컬 스토리지에 유지됨) */
 .like-btn.liked {
-  border-color: #ff4b4b;
-  background-color: rgba(255, 75, 75, 0.05);
-  color: #ff4b4b;
+  border-color: var(--accent);
+  background-color: rgba(193, 122, 90, 0.08);
+  color: var(--accent);
 }
 
 .like-btn.liked .heart-icon {
@@ -857,7 +857,7 @@ body {
 
 .category-tab--sub.active {
   color: var(--text-main);
-  border-bottom-color: var(--text-main);
+  border-bottom-color: var(--accent);
 }
 
 /* =========================================
@@ -884,23 +884,23 @@ body {
 }
 
 .post-card {
-  text-align: center;
+  text-align: left;
 }
 
 .post-card .post-date {
   display: block;
   font-size: 0.75rem;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .post-card .post-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin-left: 0;
   margin-bottom: 6px;
 }
 
 .post-card .post-summary {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   margin-left: 0;
 }
 

@@ -14,16 +14,16 @@ title: "지면"
   </div>
 </div>
 
-<div class="post-container">
-  <div class="post-grid">
-    {% for post in site.posts %}
-      <a href="{{ post.url | relative_url }}" class="post-card reveal-on-scroll" data-category="{{ post.category }}">
-        <span class="post-date">{{ post.date | date: "%Y. %m. %d" }}</span>
+<div class="writing-list">
+  {% for post in site.posts %}
+    <a href="{{ post.url | relative_url }}" class="post-item reveal-on-scroll" data-category="{{ post.category }}">
+      <div class="post-info">
         <h2 class="post-title">{{ post.title }}</h2>
-        <p class="post-summary">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-      </a>
-    {% endfor %}
-  </div>
+        <span class="post-date">{{ post.date | date: "%Y. %m. %d" }}</span>
+      </div>
+      <p class="post-summary">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    </a>
+  {% endfor %}
 </div>
 
 <script>
@@ -35,11 +35,11 @@ title: "지면"
       this.classList.add('active');
 
       var filter = this.getAttribute('data-filter');
-      document.querySelectorAll('.post-card').forEach(function(card) {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.style.display = '';
+      document.querySelectorAll('.post-item').forEach(function(item) {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = '';
         } else {
-          card.style.display = 'none';
+          item.style.display = 'none';
         }
       });
     });
