@@ -576,6 +576,24 @@ body {
 }
 
 /* =========================================
+   [소셜 아이콘] Social Links
+   ========================================= */
+
+.social-link {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.social-link:hover {
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+/* =========================================
    [다크모드 토글] Theme Toggle Switch
    ========================================= */
 .theme-toggle-btn {
