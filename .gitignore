@@ -5,4 +5,4 @@ _site
 vendor
 .env
 .env.local
-assets/js/firebase-config.js
+# assets/js/firebase-config.js  ← 커밋에 포함 (Firebase 웹 키는 공개 설계)
