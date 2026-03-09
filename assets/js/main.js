@@ -49,17 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==========================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "REDACTED_API_KEY",
-  authDomain: "tangzaisback-563c7.firebaseapp.com",
-  projectId: "tangzaisback-563c7",
-  storageBucket: "tangzaisback-563c7.firebasestorage.app",
-  messagingSenderId: "590553225335",
-  appId: "1:590553225335:web:497aff87927e4f512c8e72",
-  measurementId: "G-MPFM7ZLEJ5",
-  databaseURL: "https://tangzaisback-563c7-default-rtdb.firebaseio.com"
-};
+import { firebaseConfig } from "./firebase-config.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
