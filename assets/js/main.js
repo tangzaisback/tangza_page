@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // 3. Active navigation highlight
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('a.cate-title').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkBase = href.replace(/\/$/, '').split('/').pop();
+        if (linkBase && currentPath.includes(linkBase)) {
+            link.classList.add('cate-title-active');
+        }
+    });
 });
 
 // ==========================================
