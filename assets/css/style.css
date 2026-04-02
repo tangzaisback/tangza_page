@@ -461,11 +461,97 @@ body {
   border-bottom: 1px solid var(--accent);
 }
 
+/* 햄버거 버튼 — 데스크탑에서는 숨김 */
+.mobile-menu-btn {
+  display: none;
+}
+
+/* 모바일 드롭다운 메뉴 — 기본 숨김 */
+.mobile-menu {
+  display: none;
+}
+
 /* 화면 너비가 768px 이하(태블릿, 모바일)일 때 적용 */
 @media (max-width: 768px) {
 
   .header-wrap {
     padding: 0 16px;
+  }
+
+  /* 데스크탑 네비게이션 숨기기 */
+  .header-category {
+    display: none;
+  }
+
+  /* 햄버거 버튼 표시 */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  /* 열렸을 때 X 모양 */
+  .mobile-menu-btn.is-open .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-menu-btn.is-open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn.is-open .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 모바일 드롭다운 메뉴 */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 16px 16px;
+    /* 기본 숨김 */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .mobile-menu.is-open {
+    max-height: 300px;
+    opacity: 1;
+    padding: 8px 16px 16px;
+  }
+
+  .mobile-menu .cate-title {
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .mobile-menu-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    padding-top: 14px;
   }
 
   .post-container,
@@ -475,12 +561,8 @@ body {
   }
 
   .header_title {
-    font-size: 1.5rem;
-    /* 모바일에서는 제목을 조금 줄임 */
-  }
-
-  .header-category {
-    gap: 14px;
+    font-size: 1.3rem;
+    white-space: nowrap;
   }
 
   .content-container {

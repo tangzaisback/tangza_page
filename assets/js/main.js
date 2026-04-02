@@ -1,14 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Theme Toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
+    const applyThemeToggle = (btn) => {
+        if (!btn) return;
+        btn.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
             let newTheme = theme === 'dark' ? 'light' : 'dark';
-            
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+        });
+    };
+    applyThemeToggle(document.getElementById('theme-toggle'));
+    applyThemeToggle(document.getElementById('theme-toggle-mobile'));
+
+    // 2. Mobile Hamburger Menu
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            const isOpen = menuBtn.classList.toggle('is-open');
+            mobileMenu.classList.toggle('is-open', isOpen);
+            menuBtn.setAttribute('aria-expanded', isOpen);
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
+        });
+
+        // 메뉴 항목 클릭 시 닫기
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('is-open');
+                mobileMenu.classList.remove('is-open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+            });
         });
     }
 
