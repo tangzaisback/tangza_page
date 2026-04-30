@@ -1,0 +1,30 @@
+---
+layout: default
+title: "프로젝트"
+---
+<main class="post-container">
+  <section class="content-header hero-section hero-section--compact reveal-on-scroll">
+    <h1 class="main-title hero-title">프로젝트</h1>
+    <p class="hero-subtitle">만들고 있거나 만들었던 것들</p>
+  </section>
+
+  <div class="projects-grid">
+    {% for project in site.data.projects %}
+      <a href="{{ project.url }}"
+         class="project-card reveal-on-scroll"
+         {% if project.target %}target="{{ project.target }}"{% endif %}
+         rel="noopener noreferrer">
+        {% if project.image != "" %}
+          <img class="project-card-img"
+               src="{{ '/images/' | append: project.image | relative_url }}"
+               alt="{{ project.title }}"
+               loading="lazy">
+        {% endif %}
+        <div class="project-card-overlay">
+          <h3 class="project-card-title">{{ project.title }}</h3>
+          <p class="project-card-desc">{{ project.description }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</main>

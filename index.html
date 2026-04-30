@@ -8,6 +8,30 @@ layout: default
   </section>
 
   <section class="home-section reveal-on-scroll">
+    <h2 class="home-section-title">프로젝트</h2>
+    <div class="project-scroll-row">
+      {% for project in site.data.projects limit:3 %}
+        <a href="{{ project.url }}"
+           class="project-card"
+           {% if project.target %}target="{{ project.target }}"{% endif %}
+           rel="noopener noreferrer">
+          {% if project.image != "" %}
+            <img class="project-card-img"
+                 src="{{ '/images/' | append: project.image | relative_url }}"
+                 alt="{{ project.title }}"
+                 loading="lazy">
+          {% endif %}
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">{{ project.title }}</h3>
+            <p class="project-card-desc">{{ project.description }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <a href="{{ '/projects.html' | relative_url }}" class="home-more-link">프로젝트 전체 보기 →</a>
+  </section>
+
+  <section class="home-section reveal-on-scroll">
     <h2 class="home-section-title">최근 글</h2>
     <div class="home-grid">
       {% for post in site.posts limit:3 %}
@@ -32,6 +56,5 @@ layout: default
     </div>
     <a href="{{ '/photo.html' | relative_url }}" class="home-more-link">필름 전체 보기 →</a>
   </section>
-
 
 </main>

@@ -1,0 +1,19 @@
+# _data/projects.yml
+# image: images/ 폴더에 있는 파일명 (없으면 빈 문자열로 두면 배경색으로 대체)
+- title: "달과 절기로 보는 내 생일"
+  description: "옛날에는 생일을 어떻게 기억했을지 고민하다가 만들었습니다. 달과 절기로 생일을 기억해보면 어떨까요."
+  url: "https://tangzaisback.github.io/lunar-solar-birthday/"
+  image: "myproj-1.jpg"
+  target: "_blank"
+
+- title: "To be soon..."
+  description: "곧!"
+  url: "#"
+  image: ""
+  target: "_self"
+
+- title: "To be soon..."
+  description: "곧!"
+  url: "#"
+  image: ""
+  target: "_self"
