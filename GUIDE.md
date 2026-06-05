@@ -43,6 +43,18 @@ category: "이것저것 설명하기"
 
 카테고리를 생략하면 탭 필터에서 "전체"에만 노출된다.
 
+### 포스트에 이미지 넣기
+
+1. 이미지 파일을 `images/posts/` 폴더에 넣는다.
+2. 마크다운 본문에 아래와 같이 삽입한다.
+
+```markdown
+![설명]({{ site.baseurl }}/images/posts/파일명.jpg)
+```
+
+- `{{ site.baseurl }}` 사용 (URL 하드코딩 금지 — 로컬/배포 환경 모두 대응)
+- 이미지는 본문 너비 100%로 자동 표시되며 모서리가 살짝 둥글게 처리된다.
+
 ---
 
 ## 사진 추가 (`필름` 페이지)
@@ -105,6 +117,7 @@ category: "이것저것 설명하기"
 | `assets/js/main.js` | 다크모드, 스크롤 애니메이션, Firebase 좋아요 |
 | `images/` | 사진 압축본, 프로젝트 이미지 |
 | `images/originals/` | 사진 원본 (lightbox용) |
+| `images/posts/` | 포스트 본문 이미지 |
 | `_data/photos.yml` | 필름 페이지 사진 목록 |
 | `_data/projects.yml` | 프로젝트 페이지 목록 |
 | `_posts/` | 글 마크다운 파일 |
